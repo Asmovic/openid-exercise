@@ -1,0 +1,48 @@
+extends layout 
+
+block content
+  body.profile-body
+    .container.mt-4.mb-4.p-3.d-flex.justify-content-center
+      .card.p-4
+        .image.d-flex.flex-column.justify-content-center.align-items-center
+          button.btn.btn-secondary
+            img(src='https://i.imgur.com/wvxPV9S.png', height='100', width='100')
+          |  
+          span.name.mt-3 Eleanor Pena
+          |  
+          span.idd #{user.email}
+          |  
+          .d-flex.flex-row.justify-content-center.align-items-center.gap-2
+            span.idd1 Oxc4c16a645_b21a
+            |  
+            span
+              i.fa.fa-copy
+          |  
+          .d-flex.flex-row.justify-content-center.align-items-center.mt-3
+            span.number
+              | 1069 
+              span.follow Followers
+          |  
+          .d-flex.mt-2
+            button.btn1.btn-dark Edit Profile
+          |  
+          .text.mt-3
+            span
+              | #{user.email} is a creator of minimalistic x bold graphics and digital artwork.
+              br
+          |  
+          .gap-3.mt-3.icons.d-flex.flex-row.justify-content-center.align-items-center
+            span
+              i.fa.fa-twitter
+            |  
+            span
+              i.fa.fa-facebook-f
+            |  
+            span
+              i.fa.fa-instagram
+            |  
+            span
+              i.fa.fa-linkedin
+          |  
+          .px-2.rounded.mt-4.date
+            span.join Joined May,2021
