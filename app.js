@@ -4,15 +4,20 @@ const { auth, requiresAuth } = require('express-openid-connect');
 
 require("dotenv").config();
 
+// Initialize express App
 const app = express();
 
+// Enable Proxy
 app.enable('trust proxy');
 
+// Set view engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug')
 
+// Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Initialize openId Config
 app.use(
   auth({
     authRequired: false,
@@ -24,6 +29,7 @@ app.use(
     clientSecret: process.env.SECRET,
     authorizationParams: { 
         response_type: 'code', // This requires you to provide a client secret
+        grant_type: 'authorization_code',
         audience: 'https://id-sandbox.cashtoken.africa',
         client_id: 'wprQYMZBqqx-dgszFUfQG',
         scope: 'openid profile email',
@@ -44,8 +50,6 @@ app.use(
 ); */
 
 app.get("/", (req,res)=> {
-    /* res.send(req.oidc.isAuthenticated() ? 'Logged in': 'Logged out'); */
-
     if(req.oidc.isAuthenticated()) {
         res.render('index', { title: 'Express', user: req.oidc.user})
     } else {
